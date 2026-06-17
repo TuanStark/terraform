@@ -3,14 +3,14 @@ version: "3.8"
 services:
   localstack:
     image: localstack/localstack:latest
-    container_name: "localstack-main" 
+    container_name: "localstack-main"
     ports:
       - "127.0.0.1:4566:4566"
       - "127.0.0.1:4510-4559:4510-4559"
     environment:
       - DEBUG=${DEBUG:-0}
-      - SERVICES=s3,lambda,dynamodb
-      - LOCALSTACK_AUTH_TOKEN=${ LOCALSTACK_AUTH_TOKEN}
+      - SERVICES=ec2,s3,vpc,iam,sts,dynamodb,rds,sqs,sns
+      - LOCALSTACK_AUTH_TOKEN=${LOCALSTACK_AUTH_TOKEN:-ls-zEtE1861-qoLE-vufe-3196-LawEMaQib55a}
     volumes:
       - "${LOCALSTACK_VOLUME_DIR:-./volume}:/var/lib/localstack"
       - "/var/run/docker.sock:/var/run/docker.sock"

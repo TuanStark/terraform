@@ -1,2 +1,45 @@
 .env
 /volume
+*.tfstate
+*.tfstate.*
+.terraform/
+*.tfplan
+*.plan
+*.log
+*.log.*
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+
+# Terraform plans
+*.tfplan
+*.plan
+
+# Variables
+*.tfvars
+*.tfvars.json
+
+# Local overrides
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Terraform lock (khuyên giữ)
+#! .terraform.lock.hcl
+
+# Environment
+.env
+.env.*
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

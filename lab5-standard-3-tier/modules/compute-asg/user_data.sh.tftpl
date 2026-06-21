@@ -1,0 +1,18 @@
+#!/bin/bash
+set -euxo pipefail
+
+yum update -y
+yum install -y httpd
+
+cat > /var/www/html/index.html <<EOF
+<html>
+  <head><title>${project}-${environment}</title></head>
+  <body>
+    <h1>${project}-${environment} app tier</h1>
+    <p>Served from Auto Scaling Group on port ${app_port}</p>
+  </body>
+</html>
+EOF
+
+systemctl enable httpd
+systemctl restart httpd
